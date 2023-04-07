@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <form action="/update/<%= data.id %>" method="POST">
+        <input type="text" placeholder="fname" name="fname" value="<%= data.fname %>">
+        <input type="text" placeholder="lname" name="lname" value="<%= data.lname %>">
+        <input type="email"placeholder="email" name="email" value="<%= data.email %>">
+        <input type="phone"placeholder="phone" name="phone" value="<%= data.phone %>">
+        <textarea placeholder="Address" name="address" id="" cols="30" rows="10"><%= data.address %></textarea>
+        <button>Update</button>
+
+    </form>
+    
+</body>
+</html>

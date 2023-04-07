@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../views/css/style.css">
+    <style>
+        .navbar {
+            background-color: rgb(35, 95, 148);
+            width: 100%;
+            height: 4rem;
+            border-bottom: 2px solid rgb(170, 165, 165);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            margin-left: 40px;
+            padding-top: 20px;
+        }
+
+        .navbar ul li {
+            font-size: 1.4rem;
+            margin: 0 15px;
+
+        }
+
+        .navbar ul a:hover {
+            box-shadow: 0 0 2px rgb(15, 15, 15);
+            border-radius: 5px;
+        }
+
+        .navbar ul li a {
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+            /* background-color: red; */
+        }
+
+        .blog {
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        div {
+            width: 26%;
+            min-height: 400px;
+            border: none;
+            margin: 10px 0;
+            box-shadow: 5px 5px 8px rgb(82, 80, 80);
+            transition: 0.6s;
+        }
+
+        div:hover {
+            transform: scale(1.03);
+        }
+
+        .blog-element {
+            margin: 50px 20px;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .blog-element img {
+            max-width: 60%;
+            max-height: 60%;
+            margin-bottom: 20px;
+        }
+
+        .blog-element p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .date {
+            margin: auto;
+            /* margin-top: 10px; */
+            margin-bottom: 10px;
+            width: 70%;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(189, 189, 189);
+            color: black;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .blog-heading {
+            color: white;
+            /* text-align: center; */
+            font-family: 'Source Sans Pro', sans-serif;
+            margin:auto;
+            text-transform: capitalize;
+            font-size: 25px;
+            background-color: #ec1839;
+            border: 2px solid #ec1839;
+            border-radius: 5px;
+            height: 30px;
+            min-width: 10%;
+            /* transition: 0.6s; */
+            margin-bottom: 20px;
+        }
+
+        .disc {
+            text-align: left;
+        }
+        .edit{
+            cursor: pointer;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            background-color: #ec1839;
+            border: 2px solid #ec1839;
+            width:100px;
+            height:40px;
+            position: absolute;
+            bottom: 10px;
+            left:40%
+        }
+        .head{
+            text-align: center;
+            font-size: largest;
+            color: #ec1839;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/addBlog">Add Blog</a></li>
+        </ul>
+    </section>
+    <section class="blog">
+        <!-- <center><h1 class="head" >Blogs</h1></center> -->
+        <% data.forEach(element=> { %>
+            <div class="blog-element">
+                <h1 class="blog-heading"><%= element.title %></h1>
+                <img src="<%= element.imagepath %>" alt="Blog-picture">
+                <p style="color:#ec1839"><%= element._id %></p>
+                <p class="disc">
+                    <%= element.disc %>
+                </p>
+                <a href="/xyz/<%=element.title %>"><button type="submit" class="edit">Edit</button></a>
+            </div>
+
+            <% }) %>
+    </section>
+
+</body>
+
+</html>

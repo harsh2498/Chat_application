@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Users</title>
+                        <style>
+                            body{
+                                background-color: #FE6244;
+                            }
+                            th{
+                                background-color: #FC2947;
+                            }
+                            table{
+                                color: white;
+                                font-weight: bolder;
+                                background-color: #FE6244;
+                                /* border: 1px solid; */
+                                border-radius: 15px;
+                                width: 1400px;
+                                height: 200px;
+                                margin-left: 60px;
+                            }
+                            .details{
+                                background-color:chartreuse;
+                                margin-left: 600px;
+                                width:300px;
+                            }
+                            h1{
+                                margin: 0;
+                                background-color:#FE6244;
+                            }
+                            .view, .edit, .delete, .chat{ 
+                                background-color: #E4DCCF;
+                                border:none;
+                                width:80px;
+                                height: 30px;
+                                border-radius: 10px;;
+                            }
+                            tr:hover{
+                                background-color: #E4DCCF;
+                            }
+                            .view:hover, .edit:hover, .delete:hover, .chat:hover{
+                                background-color: chartreuse;
+                            }
+                        </style>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+                    </head>
+
+                    <body>
+                        <h1 style="text-align: center;">Registered Users</h1>
+                        <table style="text-align: center;">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Edit Button</th>
+                                <th>View Button</th>
+                                <th>Delete Button</th>
+                                <th>Chat Button</th>
+                            </tr>
+                            <tr>
+                                <% data.forEach(element=>{ %>
+                                    <div class="user">
+                                        <tr>
+                                            <!-- <td><img src="<%= element.imagepath %>" alt="user-photo" width="40cm" height="40cm" id="image"></td> -->
+                                            <td hidden><%= element.id %></td>
+                                            <td><%= element.fname %></td>
+                                            <td><%= element.lname %></td>
+                                            <td><%= element.email %></td>
+                                            <td><%= element.phone %></td>
+                                            <td><%= element.address %></td>
+
+                                            <td><a href="/abc/<%=element.id %>"><button type="Submit" class="edit">Edit</button></a></td>
+                                            <td><button type="Submit" class="view">View</button></a></td>
+                                        <td>
+                                            <a href="/users/<%=element.id %>">
+                                                <button type="Submit" class="delete">Delete</button>
+                                            </a>
+                                        </td>
+                                        <td><a href="./client/index.html"><button type="chat" class="chat">Chat</button> </a></td>
+                                    </tr>
+                </div>
+                            <% }) %>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="details"></div>
+                </body>
+                <script>
+                    $(document).ready(
+                    $('.view').click(function(){
+    var abspath = $("#image").prop('src');
+                    let currentrow = $(this).closest('tr')
+                    var col1 = currentrow.find('td:eq(0)').text();
+                    var col2 = currentrow.find('td:eq(1)').text();
+                    var col3 = currentrow.find('td:eq(2)').text();
+                    var col4 = currentrow.find('td:eq(3)').text();
+                    var col5 = currentrow.find('td:eq(4)').text();
+                    var col6 = currentrow.find('td:eq(5)').text();
+                    var col7 = currentrow.find('td:eq(6)').text();
+                    $('.details').html(
+                    `<h2>Details</h2>
+                    id:${col2}<br>
+                        Firstname :${col3}<br>
+                            Lastname : ${col4}<br>
+                                Email:${col5}<br>
+                                    Phone: ${col6}<br>
+                                        Address: ${col7}<br>`
+                                            )
+})
+                                            );
+                                        </script>
+                                    </html>
